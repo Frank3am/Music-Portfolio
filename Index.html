@@ -1,45 +1,88 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Music Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <h1>Your Name</h1>
-        <p>Audio Engineer | Music Producer</p>
-    </header>
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Mail, Instagram, Music } from "lucide-react";
+import { motion } from "framer-motion";
 
-    <section>
-        <h2>About Me</h2>
-        <p>Welcome to my portfolio. I’m a seasoned audio engineer with over 10 years of experience in music production, mixing, mastering, and sound design. Here, you can explore my work and see the projects I’ve been a part of.</p>
-    </section>
+export default function HomePage() {
+  return (
+    <main className="bg-black text-white min-h-screen font-sans">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-20 px-4">
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-bold"
+        >
+          Your Name Here
+        </motion.h1>
+        <p className="text-lg md:text-xl text-gray-400 mt-4">
+          Audio Engineer • Music Producer • Sound Designer
+        </p>
+      </section>
 
-    <section>
-        <h2>Credits</h2>
-        <p>I've had the privilege of working with a wide range of talented artists and professionals, including:</p>
-        <ul>
-            <li>Artist 1 - Album/EP</li>
-            <li>Artist 2 - Single</li>
-            <li>Artist 3 - Podcast</li>
-            <!-- Add more credits as needed -->
-        </ul>
-    </section>
+      {/* About Section */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold mb-6">About Me</h2>
+        <p className="text-gray-300 text-lg leading-relaxed">
+          With over a decade of experience in the studio, I’ve worked on albums, EPs, podcasts, audiobooks, and more. My passion lies in capturing emotion through sound and delivering mixes that hit hard and feel right.
+        </p>
+      </section>
 
-    <section>
-        <h2>My Work</h2>
-        <p>Here are some samples of the music I’ve worked on:</p>
-        <!-- You can add audio elements or links to your work here -->
-        <audio controls>
-            <source src="path_to_your_audio_file.mp3" type="audio/mp3">
-            Your browser does not support the audio element.
-        </audio>
-    </section>
+      {/* Credits Section */}
+      <section className="bg-gray-900 py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">Credits & Collaborations</h2>
+          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+            <li>🎤 Artist Name – EP Title</li>
+            <li>🎧 Podcast Name – Full Season</li>
+            <li>🎬 Film Title – Sound Design</li>
+            <li>🏆 Grammy-Nominated Project – Assistant Engineer</li>
+          </ul>
+        </div>
+      </section>
 
-    <footer>
-        <p>&copy; 2025 Your Name. All Rights Reserved.</p>
-    </footer>
-</body>
-</html>
+      {/* Music Samples Section */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold mb-6">Music Samples</h2>
+        <Card className="bg-gray-800">
+          <CardContent className="p-4">
+            <audio controls className="w-full">
+              <source src="/sample-track.mp3" type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Studio Gallery */}
+      <section className="bg-gray-900 py-16 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold mb-6">In the Studio</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="bg-gray-700 h-40 rounded-lg">{/* Placeholder */}</div>
+            <div className="bg-gray-700 h-40 rounded-lg"></div>
+            <div className="bg-gray-700 h-40 rounded-lg"></div>
+            <div className="bg-gray-700 h-40 rounded-lg"></div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="max-w-4xl mx-auto py-16 px-4">
+        <h2 className="text-3xl font-bold mb-6">Get In Touch</h2>
+        <div className="flex flex-col gap-4">
+          <Button variant="outline" className="w-fit">
+            <Mail className="mr-2" /> your@email.com
+          </Button>
+          <Button variant="outline" className="w-fit">
+            <Instagram className="mr-2" /> @yourhandle
+          </Button>
+          <Button variant="outline" className="w-fit">
+            <Music className="mr-2" /> SoundCloud / Spotify
+          </Button>
+        </div>
+      </section>
+    </main>
+  );
+}
